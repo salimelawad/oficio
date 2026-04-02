@@ -23,15 +23,16 @@ Three files do all the work:
 
 **`static/index.html`** — Self-contained SPA (no build step). Quill.js loaded from CDN. On every `text-change` or form `input` event the full draft is serialised to `localStorage` under key `oficio_draft` with a timestamp; on load it is restored if under 24 h old. The "Generar PDF" button POSTs JSON to `/generate` and triggers a blob download.
 
-## Page format constants (Venezuelan legal spec)
+## Page format constants
 
-| Page | top | left | right | lines |
-|------|-----|------|-------|-------|
-| Anverso page 1 | 5 cm | 2.5 cm | 3 cm | 30 |
-| Anverso pages 3+ | 2 cm | 1.5 cm | 3 cm | 30 |
-| Reverso (even pages) | 2 cm | 1.5 cm | 3 cm | 34 |
+Page size: **330 × 216 mm** (Papel Oficio).
 
-Page size: **8.5 × 13 inches** (612 × 936 pt) — Venezuelan oficio standard. The spec mentions "33 × 21.75 cm" but those are rounded approximations; use inches for accuracy. Font: Times-Roman 12 pt, justified. Line numbers printed at both left and right edges. Page folio format: `"1 / UNO"`.
+| Page | top | bottom | left | right | lines |
+|------|-----|--------|------|-------|-------|
+| Anverso (odd pages) | 5.5 cm | 1.5 cm | 3.0 cm | 2.0 cm | 30 |
+| Reverso (even pages) | 2.5 cm | 1.5 cm | 2.0 cm | 3.0 cm | 34 |
+
+`PAGE_CONFIGS` tuples: `(top, bottom, left, right, lines)`. Right margin differs per page type — there is no global `RIGHT_MARGIN` constant. Font: Times-Roman 12 pt, justified. Line numbers on both edges. Page folio: `"1 / UNO"`.
 
 Legal basis: Ley de Timbres Fiscales (Gaceta Oficial N° 6, 18/11/2014), Cap. II, Art. 31, Parágrafo Primero.
 

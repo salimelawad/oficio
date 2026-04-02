@@ -171,7 +171,7 @@
 
   <div class="field-group">
     <label>Título del documento</label>
-    <input type="text" id="title" placeholder="Ej: PODER ESPECIAL" />
+    <input type="text" id="title" placeholder="Ej: PODER ESPECIAL (opcional)" />
   </div>
 
   <div class="field-group">
@@ -180,13 +180,13 @@
   </div>
 
   <div class="field-group">
-    <label>N° INPREABOGADO</label>
+    <label>N° I.P.S.A.</label>
     <input type="text" id="inpreabogado" placeholder="Ej: 12.345" />
   </div>
 
   <div class="field-group">
     <label>Ciudad</label>
-    <input type="text" id="city" placeholder="Ej: Caracas" />
+    <input type="text" id="city" placeholder="Ej: Caracas (opcional)" />
   </div>
 
   <div class="field-group">
@@ -308,8 +308,8 @@
       content: quill.root.innerHTML,
       lawyer_name: document.getElementById('lawyer_name').value.trim() || 'Sin especificar',
       inpreabogado: document.getElementById('inpreabogado').value.trim() || '—',
-      title: document.getElementById('title').value.trim() || 'DOCUMENTO LEGAL',
-      city: document.getElementById('city').value.trim() || 'Caracas',
+      title: document.getElementById('title').value.trim(),
+      city: document.getElementById('city').value.trim(),
       date: document.getElementById('date').value.trim() || '',
       show_line_numbers: document.getElementById('show_line_numbers').checked,
       show_page_numbers: document.getElementById('show_page_numbers').checked,
